@@ -5,6 +5,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Brijesh Kumar Patel · PhD Physics, TIFR Hyderabad</title>
 <meta name="description" content="Brijesh Kumar Patel, PhD Physics, Tata Institute of Fundamental Research, Hyderabad. Research on organic semiconductors, doping and charge transport.">
+<meta property="og:title" content="Brijesh Kumar Patel · PhD Physics, TIFR Hyderabad">
+<meta property="og:description" content="Research on organic semiconductors, doping, charge transport and spectroscopy.">
+<meta name="theme-color" content="#0f2e26">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Source+Serif+4:wght@400;600&display=swap" rel="stylesheet">
 
 <!--
@@ -46,7 +49,7 @@ nav a{color:var(--ink);text-decoration:none;font-size:.92rem}
 nav a:hover{color:var(--accent)}
 .hero{background:linear-gradient(to bottom,var(--bg) 0,var(--bg) 90px,var(--green) 90px);padding:0 5vw 70px}
 .hero-in{max-width:1120px;margin:0 auto;display:grid;grid-template-columns:1fr;gap:28px;padding-top:40px}
-.photo{width:100%;max-width:260px;aspect-ratio:33/40;object-fit:cover;object-position:70% 20%;display:block;box-shadow:0 14px 30px rgba(0,0,0,.28)}
+.photo{width:100%;max-width:220px;aspect-ratio:4/5;object-fit:cover;object-position:70% 20%;display:block;box-shadow:0 14px 30px rgba(0,0,0,.28)}
 .hero-text{color:var(--on-green)}
 .hero h1{font-size:clamp(2.8rem,7vw,4.4rem);color:#e3846b;line-height:1.05;margin-bottom:14px}
 .creds{font-family:"Cormorant Garamond",Georgia,serif;font-size:1.15rem;letter-spacing:.04em;line-height:1.5;color:#e9c98a;margin-bottom:22px}
@@ -73,13 +76,38 @@ h2{font-size:2.3rem;color:var(--accent);margin-bottom:26px}
 .gal img{width:100%;aspect-ratio:4/3;object-fit:cover;display:block;background:var(--card)}
 .ph{aspect-ratio:4/3;background:linear-gradient(135deg,var(--green),#25584a);display:flex;align-items:center;justify-content:center;color:#f1ead9;font-family:"Cormorant Garamond",serif;font-size:1.25rem;text-align:center;padding:8px}
 .gal figcaption{font-size:.9rem;color:var(--muted);padding-top:8px}
+.btns{display:flex;gap:14px;flex-wrap:wrap;margin-top:22px}
+.btn{display:inline-block;padding:10px 22px;background:var(--accent);color:#fff;text-decoration:none;font-family:"Cormorant Garamond",Georgia,serif;font-size:1.1rem;letter-spacing:.06em;border:1px solid var(--accent);transition:transform .2s,background .2s}
+.btn:hover{transform:translateY(-2px);background:transparent;color:var(--accent)}
+.hero .btn:hover{color:#e9c98a;border-color:#e9c98a}
+.btn.alt{background:transparent;color:var(--accent)}
+.hero .btn.alt{color:#e9c98a;border-color:#e9c98a}
+.btn.alt:hover{background:var(--accent);color:#fff}
+.kicker{font-family:"Cormorant Garamond",serif;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);font-size:.9rem;margin:0 0 6px}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+.chip{border:1px solid var(--line);background:var(--card);padding:3px 12px;font-size:.88rem;border-radius:99px}
+.card{transition:transform .25s,box-shadow .25s}
+.card:hover{transform:translateY(-3px);box-shadow:0 10px 24px rgba(0,0,0,.12)}
+.card .yr{display:block;margin-bottom:4px}
+.fpub{display:grid;grid-template-columns:70px 1fr;gap:16px;padding:16px 0;border-top:1px solid var(--line)}
+.fpub h3{font-size:1.35rem;line-height:1.25}
+.fpub small{color:var(--muted);display:block;margin-top:4px}
+.fpub a{color:inherit;text-decoration:none}.fpub a:hover h3{color:var(--accent)}
+.cta{background:var(--green);color:var(--on-green);padding:34px 28px;margin-bottom:34px}
+.cta h3{font-size:2rem;color:#e3846b;margin-bottom:8px}
+.cta p{margin:0;max-width:60ch}
+.cta .btn.alt{color:#e9c98a;border-color:#e9c98a}
+.cta .btn.alt:hover{background:#e9c98a;color:var(--green)}
+.reveal{opacity:0;transform:translateY(18px);transition:opacity .7s,transform .7s}
+.reveal.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}html{scroll-behavior:auto}}
 footer{border-top:1px solid var(--line);text-align:center;padding:26px 5vw;color:var(--muted);font-size:.88rem}
 @media (min-width:761px){
  .tag{display:block}
  .hero{background:linear-gradient(to bottom,var(--bg) 0,var(--bg) 170px,var(--green) 170px);padding-bottom:110px}
- .hero-in{grid-template-columns:minmax(300px,400px) 1fr;gap:56px;align-items:stretch;padding-top:70px}
+ .hero-in{grid-template-columns:minmax(240px,300px) 1fr;gap:56px;align-items:start;padding-top:70px}
  .hero-in.nophoto{grid-template-columns:1fr}
- .photo{max-width:none;height:100%;aspect-ratio:auto}
+ .photo{max-width:none;height:auto;aspect-ratio:4/5}
  .hero-text{padding-top:110px}
  .hero h1{margin-bottom:18px}
  .creds{margin:0 0 24px 40px;font-size:1.05rem;font-variant:small-caps;letter-spacing:.08em;line-height:1.6}
@@ -107,6 +135,14 @@ const SITE = {
   tagline: "PhD Physics, Tata Institute of Fundamental Research, Hyderabad",
   email: "brijeshpatel@tifrh.res.in",
   scholar: "https://scholar.google.com/citations?user=GrSPwfQAAAAJ",
+  cv: "",                                       // e.g. "CV.pdf" (upload it next to index.html) to show a Download CV button
+  links: [                                      // buttons in Contact; empty url = hidden
+    { label: "Google Scholar", url: "https://scholar.google.com/citations?user=GrSPwfQAAAAJ" },
+    { label: "LinkedIn", url: "" },
+    { label: "ORCID", url: "" },
+    { label: "GitHub", url: "" }
+  ],
+  collab: "Interested in collaborating on organic electronics, doping of semiconductors, charge transport or spectroscopy? I would be glad to connect.",
   authorName: "Brijesh K. Patel",              // shown in bold inside author lists
   photo: "Profile.jpg",
   photoAlt: "Portrait of Brijesh Patel speaking into a microphone",
@@ -168,13 +204,14 @@ const OUTREACH = [
   "Played the All India Inter-NIT Cricket Tournament"
 ];
 
-/* PUBLICATIONS: each group has a title and a list of items.
+/* PUBLICATIONS: add  featured: true,  to an item to show it under "Selected publications" at the top.
+   Each group has a title and a list of items.
    Every item needs "title"; "authors", "journal", "detail" and "link" are optional. */
 const PUBLICATIONS = [
   { group: "Peer-reviewed", items: [
-    { title: "In-situ Regenerative Adduct Assisted p-Type Doping of Organic Semiconductors", authors: "Brijesh K. Patel, Arya Vidhan, Shubham Gupta, Vaishali Arunachalam, Simantini Nayak, Shaibal K. Sarkar, Pabitra K. Nayak", journal: "Advanced Materials", detail: "e73351 (2026)", link: "https://doi.org/10.1002/adma.73351" },
-    { title: "The state of the art in photovoltaic materials and device research", authors: "Thomas Kirchartz, Genghua Yan, Ye Yuan, Brijesh K. Patel, David Cahen, Pabitra K. Nayak", journal: "Nature Reviews Materials", detail: "10, 335–354 (2025)", link: "https://doi.org/10.1038/s41578-025-00784-4" },
-    { title: "Tuning and Understanding of Layered 2D MoS2–MoO3 Interface for Enhanced Photocatalytic Activities", authors: "S. Mallick, M. Jena, B. Das, B. Mohanty, Brijesh K. Patel, D.P. Das, A. Rath", journal: "Advanced Functional Materials", detail: "35, 2422645 (2025)", link: "https://doi.org/10.1002/adfm.202422645" },
+    { featured: true, title: "In-situ Regenerative Adduct Assisted p-Type Doping of Organic Semiconductors", authors: "Brijesh K. Patel, Arya Vidhan, Shubham Gupta, Vaishali Arunachalam, Simantini Nayak, Shaibal K. Sarkar, Pabitra K. Nayak", journal: "Advanced Materials", detail: "e73351 (2026)", link: "https://doi.org/10.1002/adma.73351" },
+    { featured: true, title: "The state of the art in photovoltaic materials and device research", authors: "Thomas Kirchartz, Genghua Yan, Ye Yuan, Brijesh K. Patel, David Cahen, Pabitra K. Nayak", journal: "Nature Reviews Materials", detail: "10, 335–354 (2025)", link: "https://doi.org/10.1038/s41578-025-00784-4" },
+    { featured: true, title: "Tuning and Understanding of Layered 2D MoS2–MoO3 Interface for Enhanced Photocatalytic Activities", authors: "S. Mallick, M. Jena, B. Das, B. Mohanty, Brijesh K. Patel, D.P. Das, A. Rath", journal: "Advanced Functional Materials", detail: "35, 2422645 (2025)", link: "https://doi.org/10.1002/adfm.202422645" },
     { title: "Charge Transport Dynamics in Doped Organic Polymers", authors: "Chandan Pramanik, Shubham Gupta, Sanyam Sharma, Brijesh K. Patel, Anirban Mondal, Pabitra K. Nayak, K.S. Narayan", journal: "Advanced Functional Materials", detail: "e78579", link: "https://doi.org/10.1002/adfm.78579" },
     { title: "Ion-Bound Polaronic Excitations in Doped P3HT", authors: "Dipin Kumar Tomar, Anil Kumar, Brijesh K. Patel, Shubham Gupta, Pabitra K. Nayak, Jyotishman Dasgupta", journal: "Journal of Physical Chemistry C", detail: "129, 51, 22650–22658 (2025)", link: "https://doi.org/10.1021/acs.jpcc.5c07231" }
   ]},
@@ -194,6 +231,24 @@ const PUBLICATIONS = [
     { title: "Nanoscale-Mesoscopic Optoelectronic Device Fabrication using Photolithography", detail: "Advisor: Pabitra K. Nayak, TIFR Hyderabad" },
     { title: "Experimental Setup for Dynamic Response of MoS2–HDABiI5 Heterostructures", detail: "Advisor: Pabitra K. Nayak, TIFR Hyderabad" }
   ]}
+];
+
+/* HIGHLIGHTS: shown as honour cards. */
+const HIGHLIGHTS = [
+  { year: "2026", title: "Best Poster Award", place: "CARE-2026 · TIFR Hyderabad" },
+  { year: "2026", title: "International patent", place: "WO2026/120623 · Sublimable compounds" },
+  { year: "2025", title: "Invited talk", place: "AMEES-2025 · IIT Bhubaneswar" }
+];
+
+/* TOOLKIT: small tags shown under Technical skills. */
+const TOOLKIT = ["XPS", "Transient absorption", "Raman", "IR", "Photoluminescence", "Time-resolved PL", "Impedance spectroscopy", "Kelvin probe", "AFM", "SEM", "Hall measurement", "SCLC", "Thin film deposition", "Lithography", "Python"];
+
+/* NEWS: newest first. Leave [] to hide the News section. */
+const NEWS = [
+  { date: "2026", title: "Paper published in Advanced Materials", text: "In-situ regenerative adduct assisted p-type doping of organic semiconductors." },
+  { date: "2026", title: "Best Poster Award at CARE-2026", text: "Conference on Advancements in Renewable Energies, TIFR Hyderabad." },
+  { date: "2026", title: "International patent published", text: "Sublimable compounds, process for their preparation and applications thereof (WO2026/120623)." },
+  { date: "2025", title: "Invited talk at AMEES-2025", text: "International Conference on Advanced Materials, Energy & Environmental Sustainability, IIT Bhubaneswar." }
 ];
 
 /* GALLERY: each line is one tile. Without a "file" it shows a green placeholder.
@@ -218,7 +273,7 @@ const bold = s => esc(s).split(esc(SITE.authorName)).join("<b>" + esc(SITE.autho
 const link = (u, t) => `<a href="${esc(u)}" target="_blank" rel="noopener">${esc(t)}</a>`;
 const has = a => Array.isArray(a) && a.length > 0;
 const sections = [];
-const add = (id, label, html) => sections.push({ id, label, html });
+const add = (id, label, html, nav = true) => sections.push({ id, label, html, nav });
 
 document.getElementById("brand").textContent = SITE.name;
 document.getElementById("tag").innerHTML = esc(SITE.tagline).replace(/, /g, ",<br>");
@@ -230,10 +285,13 @@ if (has(RESEARCH.interests) || RESEARCH.text) {
     (has(RESEARCH.interests) ? `<h3 class="sub">Research interests</h3><div class="grid">${RESEARCH.interests.map(i => `<div class="card"><h3>${esc(i.title)}</h3><p>${esc(i.text)}</p></div>`).join("")}</div>` : ""));
 }
 
+const feat = PUBLICATIONS.flatMap(g => g.items).filter(p => p.featured);
+if (has(feat)) add("selected", "Selected", `<p class="kicker">Selected publications</p><h2>Ideas, tested. Research, published.</h2>` + feat.map(p => `<div class="fpub"><span class="yr">${esc((p.detail || "").match(/20\d\d/)?.[0] || "")}</span><div>${p.link ? `<a href="${esc(p.link)}" target="_blank" rel="noopener">` : ""}<h3>${esc(p.title)}</h3>${p.link ? "</a>" : ""}<small>${esc(p.journal || "")}</small></div></div>`).join("") + `<p class="note"><a href="#publications" style="color:var(--accent)">All publications ↓</a></p>`, false);
+if (has(HIGHLIGHTS)) add("honours", "Honours", `<p class="kicker">Recognition</p><h2>Selected honours and milestones.</h2><div class="grid">${HIGHLIGHTS.map(h => `<div class="card"><span class="yr">${esc(h.year)}</span><h3>${esc(h.title)}</h3><p>${esc(h.place)}</p></div>`).join("")}</div>`, false);
 const list = a => `<ul class="list">${a.map(x => `<li>${esc(x)}</li>`).join("")}</ul>`;
 let cv = "<h2>CV</h2>";
 if (has(EDUCATION)) cv += `<h3 class="sub">Education</h3>` + EDUCATION.map(e => `<div class="row"><span class="yr">${esc(e.years)}</span><div><b>${esc(e.degree)}</b>, ${esc(e.place)}${e.score ? `<small>${esc(e.score)}</small>` : ""}</div></div>`).join("");
-if (has(SKILLS)) cv += `<h3 class="sub">Technical skills</h3><div class="grid">${SKILLS.map(i => `<div class="card"><h3>${esc(i.title)}</h3><p>${esc(i.text)}</p></div>`).join("")}</div>`;
+if (has(SKILLS)) cv += `<h3 class="sub">Technical skills</h3><div class="grid">${SKILLS.map(i => `<div class="card"><h3>${esc(i.title)}</h3><p>${esc(i.text)}</p></div>`).join("")}</div>` + (has(TOOLKIT) ? `<div class="chips">${TOOLKIT.map(t => `<span class="chip">${esc(t)}</span>`).join("")}</div>` : "");
 if (has(TALKS)) cv += `<h3 class="sub">Conferences and invited talks</h3>` + list(TALKS);
 if (has(AWARDS)) cv += `<h3 class="sub">Awards and achievements</h3>` + list(AWARDS);
 if (has(OUTREACH)) cv += `<h3 class="sub">Outreach and activities</h3>` + list(OUTREACH);
@@ -252,16 +310,23 @@ if (has(GALLERY)) {
   add("gallery", "Gallery", `<h2>Gallery</h2><div class="gal">${GALLERY.map(g => `<figure>${g.file ? `<img src="${esc(g.file)}" alt="${esc(g.title || g.caption)}" loading="lazy">` : `<div class="ph">${esc(g.title)}</div>`}<figcaption>${esc(g.caption || "")}</figcaption></figure>`).join("")}</div>`);
 }
 
+if (has(NEWS)) add("news", "News", `<p class="kicker">Latest notes</p><h2>News & updates.</h2>` + NEWS.map(n => `<div class="row"><span class="yr">${esc(n.date)}</span><div><b>${esc(n.title)}</b><small>${esc(n.text)}</small></div></div>`).join(""));
+
 add("contact", "Contact",
-  `<h2>Contact</h2><p class="lead contact">${esc(SITE.name)}<br>${esc(SITE.tagline.replace(/^PhD Physics, /, ""))}</p><p class="contact">` +
-  (SITE.email ? `<a href="mailto:${esc(SITE.email)}">${esc(SITE.email)}</a><br>` : "") + (SITE.scholar ? link(SITE.scholar, "Google Scholar") : "") + `</p>`);
+  `<h2>Contact</h2><div class="cta"><h3>Better science starts with shared ideas.</h3><p>${esc(SITE.collab)}</p><div class="btns">${SITE.email ? `<a class="btn alt" href="mailto:${esc(SITE.email)}">Get in touch ↗</a>` : ""}</div></div>` +
+  `<p class="lead contact">${esc(SITE.name)}<br>${esc(SITE.tagline.replace(/^PhD Physics, /, ""))}</p><p class="contact">${SITE.email ? `<a href="mailto:${esc(SITE.email)}">${esc(SITE.email)}</a><br>` : ""}${(SITE.links || []).filter(l => l.url).map(l => link(l.url, l.label)).join(" · ")}</p>`);
 
 const hero = `<div class="hero" id="home"><div class="hero-in" id="heroin">` +
   (SITE.photo ? `<img class="photo" id="photo" src="${esc(SITE.photo)}" alt="${esc(SITE.photoAlt)}">` : "") +
-  `<div class="hero-text"><h1>${esc(SITE.heading)}</h1><div class="creds">${SITE.credentials.map(esc).join("<br>")}</div>${SITE.intro.map(p => `<p>${esc(p)}</p>`).join("")}</div></div></div>`;
+  `<div class="hero-text"><h1>${esc(SITE.heading)}</h1><div class="creds">${SITE.credentials.map(esc).join("<br>")}</div>${SITE.intro.map(p => `<p>${esc(p)}</p>`).join("")}<div class="btns"><a class="btn" href="#research">Explore my research</a><a class="btn alt" href="#publications">Publications</a>${SITE.cv ? `<a class="btn alt" href="${esc(SITE.cv)}" target="_blank" rel="noopener">Download CV</a>` : ""}</div></div></div></div>`;
 
 document.getElementById("main").innerHTML = hero + sections.map(s => `<section id="${s.id}">${s.html}</section>`).join("");
-document.getElementById("nav").innerHTML = `<a href="#home">Home</a>` + sections.map(s => `<a href="#${s.id}">${s.label}</a>`).join("");
+document.getElementById("nav").innerHTML = `<a href="#home">Home</a>` + sections.filter(s => s.nav).map(s => `<a href="#${s.id}">${s.label}</a>`).join("");
+
+if ("IntersectionObserver" in window) {
+  const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); } }), { threshold: .08 });
+  document.querySelectorAll("main section").forEach(el => { el.classList.add("reveal"); io.observe(el); });
+}
 
 const ph = document.getElementById("photo");
 if (ph) ph.addEventListener("error", () => { ph.remove(); document.getElementById("heroin").classList.add("nophoto"); });
