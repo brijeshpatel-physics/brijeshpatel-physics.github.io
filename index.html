@@ -23,10 +23,10 @@
  5. A section with nothing in it (for example the gallery) hides
     itself automatically, including its menu link.
 
- PHOTOS: upload pictures to GitHub in the same place as index.html
- (Add file > Upload files), then put the file name in the "GALLERY"
- list. Your main photo is  Profile.jpg  (upload a new one with the
- same name to replace it).
+ PHOTOS: the gallery pictures live in the  gallery  folder (full size)
+ and  gallery/thumbs  (small copy). Keep both folders next to index.html
+ when you upload to GitHub. Your main photo is  Profile.jpg  (upload a
+ new one with the same name to replace it).
 
  To publish: on GitHub open index.html, click the pencil icon, edit,
  then click "Commit changes". The site updates in 1 to 2 minutes.
@@ -71,11 +71,41 @@ h2{font-size:2.3rem;color:var(--accent);margin-bottom:26px}
 .pub span{color:var(--muted);display:block;font-size:.92rem}
 .pub b{font-weight:600}
 .pub a,.lead a,.contact a{color:var(--accent)}
-.gal{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:16px}
-.gal figure{margin:0}
-.gal img{width:100%;aspect-ratio:4/3;object-fit:cover;display:block;background:var(--card)}
-.ph{aspect-ratio:4/3;background:linear-gradient(135deg,var(--green),#25584a);display:flex;align-items:center;justify-content:center;color:#f1ead9;font-family:"Cormorant Garamond",serif;font-size:1.25rem;text-align:center;padding:8px}
-.gal figcaption{font-size:.9rem;color:var(--muted);padding-top:8px}
+.gal-intro{max-width:60ch;color:var(--muted);margin:-10px 0 24px}
+.filters{display:flex;flex-wrap:wrap;gap:10px;margin:0 0 28px}
+.fbtn{font:inherit;font-family:"Cormorant Garamond",Georgia,serif;font-size:1.1rem;letter-spacing:.05em;padding:6px 18px;border:1px solid var(--line);background:var(--card);color:var(--ink);border-radius:99px;cursor:pointer;transition:background .2s,color .2s,border-color .2s}
+.fbtn:hover{border-color:var(--accent);color:var(--accent)}
+.fbtn[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:#fff}
+.fbtn small{opacity:.7;margin-left:6px;font-size:.8em}
+.gal{display:flex;gap:14px;align-items:flex-start}
+.gcol{flex:1;min-width:0;display:flex;flex-direction:column;gap:14px}
+.gal figure{margin:0;position:relative;overflow:hidden;background:var(--card);animation:gin .5s both}
+@keyframes gin{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+.gal button{display:block;width:100%;padding:0;border:0;background:none;cursor:zoom-in;font:inherit;color:inherit;text-align:left}
+.gal img{width:100%;height:auto;display:block;transition:transform .6s ease}
+.gal figure:hover img{transform:scale(1.05)}
+.gal figcaption{position:absolute;left:0;right:0;bottom:0;padding:34px 14px 12px;color:#f6f1e4;background:linear-gradient(to top,rgba(8,24,19,.88),transparent);opacity:0;transform:translateY(8px);transition:opacity .3s,transform .3s;pointer-events:none}
+.gal figcaption b{display:block;font-family:"Cormorant Garamond",Georgia,serif;font-size:1.2rem;font-weight:600;line-height:1.2}
+.gal figcaption span{font-size:.85rem;opacity:.85;line-height:1.35;display:block}
+.gal figure:hover figcaption,.gal button:focus-visible+figcaption{opacity:1;transform:none}
+@media (hover:none){.gal figcaption{opacity:1;transform:none;padding-top:26px}.gal figcaption span{display:none}}
+.lb{position:fixed;inset:0;z-index:50;background:rgba(6,16,13,.94);display:none;align-items:center;justify-content:center;padding:max(16px,env(safe-area-inset-top,0px)) 16px max(16px,env(safe-area-inset-bottom,0px))}
+.lb.open{display:flex;animation:gin .25s both}
+.lb-in{max-width:min(1200px,100%);max-height:100%;display:flex;flex-direction:column;align-items:center;gap:12px}
+.lb img{max-width:100%;max-height:calc(100vh - 150px);max-height:calc(100dvh - 150px);object-fit:contain;display:block;box-shadow:0 20px 60px rgba(0,0,0,.5)}
+.lb-cap{color:#f1ead9;text-align:center;max-width:70ch}
+.lb-cap b{font-family:"Cormorant Garamond",Georgia,serif;font-size:1.4rem;font-weight:600;display:block;color:#e9c98a}
+.lb-cap span{font-size:.92rem;opacity:.85}
+.lb-cap small{display:block;margin-top:4px;opacity:.55;letter-spacing:.1em}
+.lb-b{position:absolute;background:rgba(241,234,217,.12);color:#f1ead9;border:0;width:46px;height:46px;border-radius:50%;font-size:1.5rem;line-height:1;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .2s}
+.lb-b:hover{background:var(--accent)}
+.lb-b:focus-visible{outline:2px solid #e9c98a;outline-offset:2px}
+.lb-x{top:max(14px,env(safe-area-inset-top,0px));right:14px}
+.lb-p{left:12px;top:50%;transform:translateY(-50%)}
+.lb-n{right:12px;top:50%;transform:translateY(-50%)}
+@media (max-width:600px){.lb-p,.lb-n{top:auto;bottom:max(14px,env(safe-area-inset-bottom,0px));transform:none}.lb-p{left:calc(50% - 56px)}.lb-n{right:calc(50% - 56px)}.lb-cap{margin-bottom:56px}.lb img{max-height:calc(100dvh - 230px)}}
+nav a.on{color:var(--accent);border-bottom:1px solid var(--accent)}
+@media (prefers-reduced-motion:reduce){.gal figure,.lb.open{animation:none}.gal img{transition:none}}
 .btns{display:flex;gap:14px;flex-wrap:wrap;margin-top:22px}
 .btn{display:inline-block;padding:10px 22px;background:var(--accent);color:#fff;text-decoration:none;font-family:"Cormorant Garamond",Georgia,serif;font-size:1.1rem;letter-spacing:.06em;border:1px solid var(--accent);transition:transform .2s,background .2s}
 .btn:hover{transform:translateY(-2px);background:transparent;color:var(--accent)}
@@ -251,18 +281,60 @@ const NEWS = [
   { date: "2025", title: "Invited talk at AMEES-2025", text: "International Conference on Advanced Materials, Energy & Environmental Sustainability, IIT Bhubaneswar." }
 ];
 
-/* GALLERY: each line is one tile. Without a "file" it shows a green placeholder.
-   To add a real photo, upload it next to index.html and add  file: "name.jpg"
-   to that line, for example:  { file: "lab.jpg", title: "In the lab", ... }
-   Delete all lines (leave []) to hide the gallery.                              */
+/* GALLERY: one line per photo. "cat" is the album (Conferences, Cricket, Nature).
+   "file" is the picture name inside the gallery folder (no .jpg). To add a photo:
+   put  name.jpg  in gallery/  and a small copy in gallery/thumbs/, then copy a line
+   and change the words. Delete all lines (leave []) to hide the gallery.           */
+const GALLERY_INTRO = "Moments from conferences, the cricket field and the outdoors.";
 const GALLERY = [
-  { title: "Conference talks", caption: "Invited talk and poster sessions" },
-  { title: "Best Poster Award", caption: "CARE-2026, TIFR Hyderabad" },
-  { title: "In the lab", caption: "Spectroscopy and device fabrication" },
-  { title: "Outreach", caption: "Teaching science to school students" },
-  { title: "Cricket", caption: "All India Inter-NIT Tournament" },
-  { title: "TIFR Hyderabad", caption: "Campus and colleagues" },
-  { title: "Nature", caption: "Landscapes and the outdoors" }
+  { "cat": "Conferences", "file": "conferences-09", "w": 560, "h": 700, "title": "Award certificate", "caption": "Receiving a certificate" },
+  { "cat": "Conferences", "file": "conferences-01", "w": 700, "h": 525, "title": "Invited talk, AMEES-2025", "caption": "IIT Bhubaneswar" },
+  { "cat": "Conferences", "file": "conferences-06", "w": 700, "h": 454, "title": "Presenting at AMEES-2025", "caption": "Talk to a packed room" },
+  { "cat": "Conferences", "file": "conferences-07", "w": 700, "h": 454, "title": "AMEES-2025 group photo", "caption": "With fellow participants" },
+  { "cat": "Conferences", "file": "conferences-02", "w": 700, "h": 627, "title": "CARE-2026", "caption": "With colleagues, TIFR Hyderabad" },
+  { "cat": "Conferences", "file": "conferences-08", "w": 525, "h": 700, "title": "Poster presentation", "caption": "Beyond Conventional Doping: the IRAA for perovskite solar cells" },
+  { "cat": "Conferences", "file": "conferences-05", "w": 588, "h": 700, "title": "Poster discussion", "caption": "Explaining the work at the poster" },
+  { "cat": "Conferences", "file": "conferences-11", "w": 700, "h": 631, "title": "Poster discussion", "caption": "Questions and ideas at the poster board" },
+  { "cat": "Conferences", "file": "conferences-03", "w": 700, "h": 525, "title": "DAE Conclave", "caption": "Outside Pathani Samanta Auditorium" },
+  { "cat": "Conferences", "file": "conferences-04", "w": 525, "h": 700, "title": "DAE Conclave", "caption": "Delegate badge in hand" },
+  { "cat": "Conferences", "file": "conferences-10", "w": 673, "h": 700, "title": "Frontiers of Light", "caption": "International School, TIFR Hyderabad, October 2023" },
+  { "cat": "Cricket", "file": "cricket-04", "w": 700, "h": 602, "title": "Impact Performer", "caption": "Flying Monkey Cricket League" },
+  { "cat": "Cricket", "file": "cricket-05", "w": 547, "h": 700, "title": "Best Bowler", "caption": "Super 2’s Cricket Club championship" },
+  { "cat": "Cricket", "file": "cricket-03", "w": 700, "h": 601, "title": "Ball and trophy", "caption": "A match well played" },
+  { "cat": "Cricket", "file": "cricket-07", "w": 693, "h": 700, "title": "Winners’ trophy", "caption": "Medal and cup after the final" },
+  { "cat": "Cricket", "file": "cricket-09", "w": 700, "h": 607, "title": "Champions", "caption": "Team with the trophy" },
+  { "cat": "Cricket", "file": "cricket-02", "w": 700, "h": 525, "title": "NIT Raipur squad", "caption": "Inter-NIT tournament" },
+  { "cat": "Cricket", "file": "cricket-11", "w": 700, "h": 467, "title": "Team photo", "caption": "NIT Raipur on the ground" },
+  { "cat": "Cricket", "file": "cricket-10", "w": 700, "h": 467, "title": "Teammates", "caption": "NIT Raipur" },
+  { "cat": "Cricket", "file": "cricket-12", "w": 700, "h": 467, "title": "Ball in the air", "caption": "NIT Raipur whites" },
+  { "cat": "Cricket", "file": "cricket-13", "w": 700, "h": 436, "title": "Home ground", "caption": "NIT Raipur" },
+  { "cat": "Cricket", "file": "cricket-01", "w": 700, "h": 525, "title": "Team huddle", "caption": "Between innings" },
+  { "cat": "Cricket", "file": "cricket-06", "w": 607, "h": 700, "title": "Post-match smile", "caption": "On the field" },
+  { "cat": "Cricket", "file": "cricket-08", "w": 525, "h": 700, "title": "Number 03", "caption": "Match-day jersey" },
+  { "cat": "Nature", "file": "nature-22", "w": 525, "h": 700, "title": "Water lily", "caption": "Pink bloom in a temple pond" },
+  { "cat": "Nature", "file": "nature-14", "w": 700, "h": 394, "title": "Sunset through the trees", "caption": "Golden hour" },
+  { "cat": "Nature", "file": "nature-19", "w": 700, "h": 394, "title": "Sunrise over the river", "caption": "Reflected light on calm water" },
+  { "cat": "Nature", "file": "nature-11", "w": 638, "h": 700, "title": "Kingfisher", "caption": "Perched on a lamp post" },
+  { "cat": "Nature", "file": "nature-13", "w": 700, "h": 417, "title": "Bee at work", "caption": "Yellow flowers in soft focus" },
+  { "cat": "Nature", "file": "nature-18", "w": 700, "h": 394, "title": "Mustard fields", "caption": "A sea of yellow" },
+  { "cat": "Nature", "file": "nature-23", "w": 700, "h": 525, "title": "Mustard at dawn", "caption": "Cool morning light" },
+  { "cat": "Nature", "file": "nature-16", "w": 700, "h": 394, "title": "Morning mist", "caption": "Farmland and a thatched hut" },
+  { "cat": "Nature", "file": "nature-17", "w": 700, "h": 394, "title": "Winter fog", "caption": "Fields in the haze" },
+  { "cat": "Nature", "file": "nature-24", "w": 700, "h": 695, "title": "Green valley", "caption": "Monsoon clouds over the hills" },
+  { "cat": "Nature", "file": "nature-15", "w": 700, "h": 394, "title": "Palm silhouette", "caption": "Dusk sky" },
+  { "cat": "Nature", "file": "nature-21", "w": 612, "h": 700, "title": "Tree at dusk", "caption": "Last light behind the branches" },
+  { "cat": "Nature", "file": "nature-01", "w": 493, "h": 700, "title": "Morning rays", "caption": "Sunlight along a garden path" },
+  { "cat": "Nature", "file": "nature-02", "w": 700, "h": 467, "title": "Waterbird", "caption": "Foraging in the undergrowth" },
+  { "cat": "Nature", "file": "nature-12", "w": 700, "h": 394, "title": "Flame trees", "caption": "A road lined with blossoms" },
+  { "cat": "Nature", "file": "nature-09", "w": 700, "h": 394, "title": "Campfire", "caption": "Embers and a roasting corn cob" },
+  { "cat": "Nature", "file": "nature-06", "w": 700, "h": 467, "title": "Sun behind clouds", "caption": "Dramatic sky" },
+  { "cat": "Nature", "file": "nature-10", "w": 700, "h": 394, "title": "Forest pond", "caption": "Still water among the trees" },
+  { "cat": "Nature", "file": "nature-08", "w": 700, "h": 467, "title": "Quiet lake", "caption": "Treeline in the haze" },
+  { "cat": "Nature", "file": "nature-03", "w": 700, "h": 467, "title": "Grass in the light", "caption": "Soft backlit seed heads" },
+  { "cat": "Nature", "file": "nature-04", "w": 700, "h": 467, "title": "Tall grasses", "caption": "Park edge in the haze" },
+  { "cat": "Nature", "file": "nature-05", "w": 700, "h": 467, "title": "Fountain grass", "caption": "Against the open sky" },
+  { "cat": "Nature", "file": "nature-07", "w": 700, "h": 467, "title": "The trail", "caption": "Grass-lined path" },
+  { "cat": "Nature", "file": "nature-20", "w": 467, "h": 700, "title": "Leaves and light", "caption": "Backlit foliage" },
 ];
 
 /* =====================================================================
@@ -307,7 +379,11 @@ if (has(PUBLICATIONS)) {
 }
 
 if (has(GALLERY)) {
-  add("gallery", "Gallery", `<h2>Gallery</h2><div class="gal">${GALLERY.map(g => `<figure>${g.file ? `<img src="${esc(g.file)}" alt="${esc(g.title || g.caption)}" loading="lazy">` : `<div class="ph">${esc(g.title)}</div>`}<figcaption>${esc(g.caption || "")}</figcaption></figure>`).join("")}</div>`);
+  const cats = [...new Set(GALLERY.map(g => g.cat).filter(Boolean))];
+  add("gallery", "Gallery",
+    `<h2>Gallery</h2>${GALLERY_INTRO ? `<p class="gal-intro">${esc(GALLERY_INTRO)}</p>` : ""}` +
+    (cats.length > 1 ? `<div class="filters" role="group" aria-label="Filter photos"><button class="fbtn" data-cat="" aria-pressed="true">All<small>${GALLERY.length}</small></button>${cats.map(c => `<button class="fbtn" data-cat="${esc(c)}" aria-pressed="false">${esc(c)}<small>${GALLERY.filter(g => g.cat === c).length}</small></button>`).join("")}</div>` : "") +
+    `<div class="gal" id="gal"></div>`);
 }
 
 if (has(NEWS)) add("news", "News", `<p class="kicker">Latest notes</p><h2>News & updates.</h2>` + NEWS.map(n => `<div class="row"><span class="yr">${esc(n.date)}</span><div><b>${esc(n.title)}</b><small>${esc(n.text)}</small></div></div>`).join(""));
@@ -322,6 +398,76 @@ const hero = `<div class="hero" id="home"><div class="hero-in" id="heroin">` +
 
 document.getElementById("main").innerHTML = hero + sections.map(s => `<section id="${s.id}">${s.html}</section>`).join("");
 document.getElementById("nav").innerHTML = `<a href="#home">Home</a>` + sections.filter(s => s.nav).map(s => `<a href="#${s.id}">${s.label}</a>`).join("");
+
+
+/* Gallery behaviour: filters + lightbox */
+(function () {
+  const gal = document.getElementById("gal");
+  if (!gal) return;
+  const full = g => g.file.includes(".") ? g.file : `gallery/${g.file}.jpg`;
+  const thumb = g => g.thumb || (g.file.includes(".") ? g.file : `gallery/thumbs/${g.file}.jpg`);
+  let shown = GALLERY.slice(), idx = 0, cat = "";
+  let ncols = 0;
+  const cols = () => gal.clientWidth >= 860 ? 4 : gal.clientWidth >= 560 ? 3 : 2;
+  function draw() {
+    shown = GALLERY.filter(g => !cat || g.cat === cat);
+    ncols = cols();
+    const heights = Array(ncols).fill(0), out = Array.from({ length: ncols }, () => "");
+    shown.forEach((g, i) => {
+      let c = heights.indexOf(Math.min(...heights));
+      heights[c] += g.w ? g.h / g.w : .75;
+      out[c] += `<figure style="animation-delay:${Math.min(i, 12) * 40}ms"><button type="button" data-i="${i}" aria-label="Open photo: ${esc(g.title || g.caption)}"><img src="${esc(thumb(g))}" ${g.w ? `width="${g.w}" height="${g.h}"` : ""} alt="${esc(g.title || g.caption)}" loading="lazy" decoding="async"></button><figcaption><b>${esc(g.title)}</b><span>${esc(g.caption || "")}</span></figcaption></figure>`;
+    });
+    gal.innerHTML = out.map(h => `<div class="gcol">${h}</div>`).join("");
+  }
+  let rt; addEventListener("resize", () => { clearTimeout(rt); rt = setTimeout(() => { if (cols() !== ncols) draw(); }, 150); });
+  document.querySelectorAll(".fbtn").forEach(b => b.addEventListener("click", () => {
+    cat = b.dataset.cat;
+    document.querySelectorAll(".fbtn").forEach(x => x.setAttribute("aria-pressed", String(x === b)));
+    draw();
+  }));
+  draw();
+
+  const lb = document.createElement("div");
+  lb.className = "lb"; lb.setAttribute("role", "dialog"); lb.setAttribute("aria-modal", "true"); lb.setAttribute("aria-label", "Photo viewer");
+  lb.innerHTML = `<button class="lb-b lb-x" aria-label="Close">×</button><button class="lb-b lb-p" aria-label="Previous photo">‹</button><button class="lb-b lb-n" aria-label="Next photo">›</button><div class="lb-in"><img alt=""><div class="lb-cap"><b></b><span></span><small></small></div></div>`;
+  document.body.appendChild(lb);
+  const im = lb.querySelector("img"), $ = s => lb.querySelector(s);
+  let opener = null;
+  function show(i) {
+    idx = (i + shown.length) % shown.length;
+    const g = shown[idx];
+    im.src = full(g); im.alt = g.title || g.caption || "";
+    $(".lb-cap b").textContent = g.title || "";
+    $(".lb-cap span").textContent = g.caption || "";
+    $(".lb-cap small").textContent = (idx + 1) + " / " + shown.length;
+    [idx + 1, idx - 1].forEach(j => { const n = shown[(j + shown.length) % shown.length]; if (n) new Image().src = full(n); });
+  }
+  function open(i) { opener = document.activeElement; show(i); lb.classList.add("open"); document.body.style.overflow = "hidden"; $(".lb-x").focus(); }
+  function close() { lb.classList.remove("open"); document.body.style.overflow = ""; im.removeAttribute("src"); if (opener) opener.focus(); }
+  gal.addEventListener("click", e => { const b = e.target.closest("button[data-i]"); if (b) open(+b.dataset.i); });
+  $(".lb-x").onclick = close; $(".lb-p").onclick = () => show(idx - 1); $(".lb-n").onclick = () => show(idx + 1);
+  lb.addEventListener("click", e => { if (e.target === lb || e.target.classList.contains("lb-in")) close(); });
+  document.addEventListener("keydown", e => {
+    if (!lb.classList.contains("open")) return;
+    if (e.key === "Escape") close();
+    else if (e.key === "ArrowLeft") show(idx - 1);
+    else if (e.key === "ArrowRight") show(idx + 1);
+    else if (e.key === "Tab") { const f = [...lb.querySelectorAll("button")]; const k = f.indexOf(document.activeElement); e.preventDefault(); f[(k + (e.shiftKey ? -1 : 1) + f.length) % f.length].focus(); }
+  });
+  let sx = null;
+  lb.addEventListener("touchstart", e => { sx = e.touches[0].clientX; }, { passive: true });
+  lb.addEventListener("touchend", e => { if (sx === null) return; const dx = e.changedTouches[0].clientX - sx; sx = null; if (Math.abs(dx) > 50) show(idx + (dx < 0 ? 1 : -1)); }, { passive: true });
+})();
+
+/* Highlight the menu link of the section being read */
+if ("IntersectionObserver" in window) {
+  const links = [...document.querySelectorAll("nav a")];
+  const spy = new IntersectionObserver(es => es.forEach(e => {
+    if (e.isIntersecting) links.forEach(a => a.classList.toggle("on", a.getAttribute("href") === "#" + e.target.id));
+  }), { rootMargin: "-40% 0px -55% 0px" });
+  document.querySelectorAll("main section").forEach(s => spy.observe(s));
+}
 
 if ("IntersectionObserver" in window) {
   const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); } }), { threshold: .08 });
